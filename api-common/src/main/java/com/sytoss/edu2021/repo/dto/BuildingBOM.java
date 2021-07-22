@@ -16,10 +16,13 @@ public class BuildingBOM {
     private Integer id;
     private String address;
     private int floorsAmount;
-
+    @JsonIgnore
     private ArrayList<CabinBOM> cabins = new ArrayList<>();
 
     public BuildingBOM() {
+    }
+    public BuildingBOM(int id) {
+        this.id = id;
     }
 
     public BuildingBOM(String address, int floorsAmount){

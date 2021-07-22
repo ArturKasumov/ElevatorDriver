@@ -14,9 +14,9 @@ public class FloorController {
 
     @GetMapping("/gotofloor/{buildingId}/{cabinNumber}/{toFloor}")
     public CabinBOM goToFloor(@PathVariable int buildingId, @PathVariable int cabinNumber, @PathVariable int toFloor) {
-        Shedule shedule = new Shedule(buildingId,cabinNumber,toFloor,floorService);
-        return shedule.execute();
-        //return floorService.goToFloor(buildingId,cabinNumber,toFloor);
+        //Shedule shedule = new Shedule(buildingId,cabinNumber,toFloor,floorService);
+        //return shedule.execute();
+        return floorService.goToFloor(buildingId,cabinNumber,toFloor);
     }
 }
 

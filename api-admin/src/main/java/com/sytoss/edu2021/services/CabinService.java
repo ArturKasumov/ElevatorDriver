@@ -81,6 +81,9 @@ public class CabinService {
         } else {
             CabinBOM cabinBOM = new CabinBOM();
             new CabinConvertor().fromDTO(cabinDTO,cabinBOM);
+            BuildingBOM building = new BuildingBOM();
+            new  BuildingConvertor().fromDTO(cabinDTO.getBuilding(),building);
+            cabinBOM.setBuilding(building);
             return cabinBOM;
         }
     }

@@ -1,5 +1,6 @@
 package com.sytoss.edu2021.controllers;
 
+import com.sytoss.edu2021.repo.dto.CabinBOM;
 import com.sytoss.edu2021.repo.dto.EngineBOM;
 import com.sytoss.edu2021.services.EngineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ public class EngineController {
     @Autowired
     private EngineService engineService;
 
-    @GetMapping("/{idCabin}")
-    public EngineBOM create(@PathVariable Integer idCabin){
-        return engineService.create(idCabin);
+    @PostMapping("/")
+    public EngineBOM create(@RequestBody CabinBOM cabin){
+        return engineService.create(cabin);
     }
 
     @PostMapping ("/engines/")
@@ -22,13 +23,13 @@ public class EngineController {
         return engineService.getEngines(ids);
     }
 
-    @GetMapping ("/get/{buildingId}/{cabinNo}")
+    @GetMapping ("/get/{idCabin}")
     public EngineBOM getEngine(@PathVariable Integer idCabin){
         return engineService.getEngine(idCabin);
     }
 
-    @PostMapping("/update")
-    public void update(@RequestBody EngineBOM engine){
+    @PostMapping("/goToFloor")
+    public void goToFloor(@RequestBody EngineBOM engine){
         engineService.update(engine);
     }
 

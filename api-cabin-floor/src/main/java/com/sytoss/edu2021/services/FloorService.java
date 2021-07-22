@@ -55,11 +55,11 @@ public class FloorService {
         while (cabin.getEngine().getCurrentFloor() != endFloor) {
             cabin.startMovement();
             try {
-                Thread.sleep(1000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            proxyEngine.update(engine);
+            proxyEngine.goToFloor(engine);
             //cabin = proxyCabin.goToFloor(buildingId,cabinNumber,endFloor);
         }
         cabin.getEngine().getListOfFloors().get(endFloor - 1).setHasCabinOnFloor(true);

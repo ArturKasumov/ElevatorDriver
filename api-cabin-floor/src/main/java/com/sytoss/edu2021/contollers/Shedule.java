@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-
+@EnableScheduling
 public class Shedule {
     private int buildingId;
     private int cabinNumber;

@@ -5,6 +5,8 @@ import com.sytoss.edu2021.bom.EngineStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.ArrayList;
 
@@ -12,9 +14,9 @@ import java.util.ArrayList;
 @Setter
 @ToString
 public class EngineBOM {
-
+    @JsonIgnore
     private BuildingBOM building;
-
+    @JsonIgnore
     private CabinBOM cabin;
 
     private EngineStatus status;

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(name = "api-engine", url = "localhost:6050/api/engine")
 public interface FeignProxyEngine {
-    @GetMapping("/{idCabin}")
-    EngineBOM create(@PathVariable Integer idCabin);
+    @PostMapping("/")
+    EngineBOM create(@RequestBody CabinBOM cabin);
 
     @PostMapping("/engines/")
     EngineBOM[] getEngines(@RequestBody Integer[] ids);

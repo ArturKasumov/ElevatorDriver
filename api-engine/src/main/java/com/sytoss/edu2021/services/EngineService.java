@@ -1,6 +1,9 @@
 package com.sytoss.edu2021.services;
 
+import com.sytoss.edu2021.bom.EngineStatus;
+import com.sytoss.edu2021.controllers.FeignProxyAdmin;
 import com.sytoss.edu2021.repo.EngineRepository;
+import com.sytoss.edu2021.repo.dto.CabinBOM;
 import com.sytoss.edu2021.repo.dto.EngineBOM;
 import com.sytoss.edu2021.repo.dto.EngineDTO;
 import com.sytoss.edu2021.services.convertor.EngineConvertor;
@@ -15,14 +18,21 @@ import java.util.List;
 public class EngineService {
 
     @Autowired
-    EngineRepository repository;
+    private EngineRepository repository;
 
-    public EngineBOM create(Integer idCabin) {
+    @Autowired
+    private FeignProxyAdmin proxyAdmin;
 
-        EngineBOM engineBOM = new EngineBOM(idCabin);
+    public EngineBOM create(CabinBOM cabin) {
+
+        EngineBOM engineBOM = new EngineBOM(cabin.getId());
         EngineDTO engineDTO = new EngineDTO();
+        //CabinBOM cabinBOM = proxyAdmin.getCabinById(cabin.getId());
+        engineBOM.setCabin(cabin);
+        engineBOM.setBuilding(cabin.getBuilding());
 
         new EngineConvertor().toDTO(engineBOM, engineDTO);
+        engineDTO.setStatus(EngineStatus.STOP);
         engineDTO = repository.save(engineDTO);
         new EngineConvertor().fromDTO(engineDTO, engineBOM);
         return engineBOM;

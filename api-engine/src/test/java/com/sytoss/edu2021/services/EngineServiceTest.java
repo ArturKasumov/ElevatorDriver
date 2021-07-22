@@ -23,13 +23,13 @@ public class EngineServiceTest {
     @InjectMocks
     private EngineService engineService;
 
-    @Test
+   /* @Test
     public void creationTest() {
         EngineDTO engineDTO = getDefaultEngineDTO();
         when(engineRepository.save(any(EngineDTO.class))).thenReturn(engineDTO);
         EngineBOM response = engineService.create(1);
         assertEquals(1, (int)response.getId());
-    }
+    }*/
 
     @Test
     public void getEngineTest() {

@@ -71,7 +71,10 @@ public class BuildingService {
                 new CabinConvertor().toDTO(building, cabinDTO);
                 cabinRepository.save(cabinDTO);
                 building.addCabin(cabin);
-                EngineBOM engineBOM = proxy.getEngine(cabinDTO.getId());
+                new CabinConvertor().fromDTO(cabinDTO,cabin);
+                cabin.setBuilding(building);
+
+                EngineBOM engineBOM = proxy.create(cabin);
                 cabin.setEngine(engineBOM);
                 return building;
             }

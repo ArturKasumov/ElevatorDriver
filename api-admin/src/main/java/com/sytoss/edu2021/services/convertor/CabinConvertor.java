@@ -19,6 +19,9 @@ public class CabinConvertor {
     public void fromDTO(CabinDTO source, CabinBOM destination){
         destination.setId(source.getId());
         destination.setNumber(source.getNumber());
+        /*BuildingBOM buildingBOM = new BuildingBOM();
+        new BuildingConvertor().fromDTO(source.getBuilding(),buildingBOM);
+        destination.setBuilding(buildingBOM);*/
 
     }
 }
