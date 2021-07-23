@@ -27,8 +27,8 @@ public class EngineService {
 
 
     public EngineBOM addEngine(Integer buildingId, CabinBOM cabin){
-        BuildingDTO contlollBuilding = buildingRepository.findBuildingById(buildingId);
-        if(contlollBuilding == null)
+        BuildingBOM building = findBuilding(buildingId);
+        if(building == null)
         {
             throw new EntityNotFoundException("There is no building with id= " + buildingId + ".\nYou can not add a cabin.");
         }
@@ -41,8 +41,6 @@ public class EngineService {
         {
             saveCabin(cabin);
             EngineBOM engine = new EngineBOM();
-            engine.setId(cabin.getId());
-            BuildingBOM building = findBuilding(buildingId);
             fillEngineBOM( engine, building, cabin);
             saveEngineBOM(engine, building, cabin);
             return engine;
@@ -65,6 +63,7 @@ public class EngineService {
 
     private void fillEngineBOM(EngineBOM engine,BuildingBOM building,CabinBOM cabin)
     {
+        engine.setId(cabin.getId());
         engine.setBuilding(building);
         engine.setCabin(cabin);
         engine.setCurrentFloor(1);
