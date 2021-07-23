@@ -7,13 +7,12 @@ import java.util.*;
 
 @Setter
 @Getter
-public class
-Route {
+public class RouteBOM {
 
     private Set<Integer> queueOfFloors;
     private Direction direction = Direction.STABLE;
 
-    public Route() {
+    public RouteBOM() {
         queueOfFloors = new TreeSet<>();
     }
 
@@ -21,17 +20,16 @@ Route {
         if (queueOfFloors.contains(floorNumber)) {
             return;
         }
-        if(direction.equals(Direction.UP) && floorNumber < this.getMinValue()) {
+        if (direction.equals(Direction.UP) && floorNumber < this.getMinValue()) {
             return;
         }
-        if(direction.equals(Direction.DOWN) && floorNumber > this.getMaxValue()) {
+        if (direction.equals(Direction.DOWN) && floorNumber > this.getMaxValue()) {
             return;
         }
 
         setDirection(currentFloor, floorNumber);
         if (currentFloor != floorNumber)
             queueOfFloors.add(floorNumber);
-        //queueOfFloors.sort(Collections.reverseOrder());
     }
 
     public void clearRoute() {

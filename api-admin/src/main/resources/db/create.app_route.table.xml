@@ -14,14 +14,17 @@
             </not>
         </preConditions>
         <createTable tableName="app_route">
-            <column name="floorNumber"  type="int">
+            <!--<column name="id_route"  type="int" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>-->
+            <column name="floor_number"  type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="id_engine" type="int">
                 <constraints nullable="false" foreignKeyName="fk_route_engine" references="app_engine(id_engine)"/>
             </column>
         </createTable>
-        <addPrimaryKey  columnNames="floorNumber, id_engine"
+        <addPrimaryKey  columnNames="floor_number, id_engine"
                         constraintName="pk_app_route"
                         schemaName="api_admin"
                         tableName="app_route"/>

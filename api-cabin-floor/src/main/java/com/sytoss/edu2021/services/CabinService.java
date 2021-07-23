@@ -1,6 +1,6 @@
 package com.sytoss.edu2021.services;
 
-import com.sytoss.edu2021.common.Route;
+import com.sytoss.edu2021.common.RouteBOM;
 import com.sytoss.edu2021.bom.CabinBOM;
 import com.sytoss.edu2021.bom.EngineBOM;
 import com.sytoss.edu2021.contollers.FeignProxyAdmin;
@@ -38,7 +38,7 @@ public class CabinService {
             throw new EntityNotFoundException("There is no such engine");
         }
 
-        Route route = cabin.getRoute();
+        RouteBOM route = cabin.getRoute();
 
         route.addRoutFloor(engine.getCurrentFloor(), floorNumber);
 

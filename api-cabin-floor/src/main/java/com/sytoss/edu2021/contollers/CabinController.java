@@ -1,15 +1,9 @@
 package com.sytoss.edu2021.contollers;
 
 import com.sytoss.edu2021.bom.CabinBOM;
-import com.sytoss.edu2021.bom.EngineBOM;
-import com.sytoss.edu2021.common.Route;
 import com.sytoss.edu2021.services.CabinService;
-import com.sytoss.edu2021.services.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpStatusCodeException;
-import org.springframework.web.client.RestTemplate;
 
 
 @RestController

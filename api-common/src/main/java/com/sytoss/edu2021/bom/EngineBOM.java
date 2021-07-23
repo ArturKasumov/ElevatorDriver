@@ -3,7 +3,7 @@ package com.sytoss.edu2021.bom;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sytoss.edu2021.common.Direction;
 import com.sytoss.edu2021.common.EngineStatus;
-import com.sytoss.edu2021.common.Route;
+import com.sytoss.edu2021.common.RouteBOM;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,21 +20,21 @@ public class EngineBOM {
 
     private EngineStatus status;
     @JsonIgnore
-    private Route route;
+    private RouteBOM route;
 
 
     private Integer currentFloor = 1;
 
     public EngineBOM() {
-        route = new Route();
+        route = new RouteBOM();
     }
 
     public EngineBOM(int id) {
         this.id = id;
-        route = new Route();
+        route = new RouteBOM();
     }
 
-    public EngineBOM(Route route, Integer currentFloor) {
+    public EngineBOM(RouteBOM route, Integer currentFloor) {
         this.route = route;
         this.currentFloor = currentFloor;
 
